@@ -4,7 +4,7 @@
 
 **Priorización Astrofísica de Exoplanetas, Observabilidad Real desde Observatorios en Chile (`Astropy`) y Análisis de Curvas de Luz Satelitales TESS/Kepler (`Lightkurve` + FastAPI + React 19 / Apache ECharts 6).**
 
-Parte de **Proyecto Tennessee** (*Portafolio de Computación Científica y Astroinformática*) por **Moisés Amundarain** (Laboratorio LIRIA / Universidad San Sebastián).
+Parte de **Proyecto Tennessee** (*Portafolio de Computación Científica y Astroinformática*) por **Moisés Amundarain** (Universidad San Sebastián).
 
 ---
 

@@ -74,7 +74,7 @@ def _sanitize_value(val: Any) -> Any:
 
 
 def _sanitize_csv_cell(val: Any) -> Any:
-    if isinstance(val, str) and val.startswith(_CSV_FORMULA_PREFIXES):
+    if isinstance(val, str) and val.lstrip(" ").startswith(_CSV_FORMULA_PREFIXES):
         return f"'{val}"
     return val
 

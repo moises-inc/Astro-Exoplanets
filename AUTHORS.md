@@ -1,7 +1,7 @@
 # Authors & Acknowledgments
 
 ## Lead Author & Maintainer
-- **Moisés Alejandro Amundarain Romero** — Computer Science & Engineering Student, Universidad San Sebastián (Patagonia Campus, Puerto Montt, Chile) · LIRIA Laboratory.  
+- **Moisés Alejandro Amundarain Romero** — Computer Science & Engineering Student, Universidad San Sebastián (Patagonia Campus, Puerto Montt, Chile).  
   Architecture, FastAPI astrophysical backend (`astropy`, `lightkurve`), React 19 + TypeScript + Apache ECharts telemetry frontend, test suites, and Proyecto Tennessee integration.
 
 ## Public Scientific Data Sources

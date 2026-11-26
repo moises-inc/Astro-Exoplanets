@@ -4,7 +4,7 @@
 
 **Astrophysical Exoplanet Prioritization, Chilean Observatory Airmass Visibility (`Astropy`), and NASA TESS/Kepler Satellite Light Curve Analysis (`Lightkurve` + FastAPI + React 19 / Apache ECharts 6).**
 
-Part of **Proyecto Tennessee** (*Scientific Computing & Astroinformatics Portfolio*) by **Moisés Amundarain** (LIRIA Laboratory / Universidad San Sebastián).
+Part of **Proyecto Tennessee** (*Scientific Computing & Astroinformatics Portfolio*) by **Moisés Amundarain** (Universidad San Sebastián).
 
 ---
 

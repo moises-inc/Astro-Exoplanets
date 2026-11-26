@@ -183,6 +183,61 @@ def test_csv_formula_injection_sanitization(monkeypatch) -> None:
     assert not rows[0]["dec"].startswith("'")
 
 
+def test_csv_formula_injection_leading_spaces(monkeypatch) -> None:
+    raw_df = pd.DataFrame(
+        [
+            {
+                "pl_name": " =HYPERLINK(\"https://example.com\",\"x\")",
+                "hostname": "  +1+1",
+                "discoverymethod": " -2+3",
+                "disc_year": 2024,
+                "disc_facility": "\t=1+1",
+                "pl_orbper": 12.0,
+                "pl_rade": 1.1,
+                "pl_bmasse": 1.5,
+                "pl_insol": 1.0,
+                "pl_eqt": 280.0,
+                "st_teff": 5200.0,
+                "st_rad": 0.9,
+                "sy_dist": 10.0,
+                "sy_jmag": 8.8,
+                "dec": -15.5,
+                "ra": 90.0,
+            }
+        ]
+    )
+
+    sanitized_direct = _sanitize_df_for_csv(raw_df)
+    assert sanitized_direct.loc[0, "pl_name"] == "' =HYPERLINK(\"https://example.com\",\"x\")"
+    assert sanitized_direct.loc[0, "hostname"] == "'  +1+1"
+    assert sanitized_direct.loc[0, "discoverymethod"] == "' -2+3"
+    assert sanitized_direct.loc[0, "disc_facility"] == "'\t=1+1"
+    assert sanitized_direct.loc[0, "dec"] == -15.5
+
+    monkeypatch.setattr(
+        sys.modules["astro_exoplanets.web.app"],
+        "fetch_exoplanets",
+        lambda force_offline=False: TapFetchResult(
+            df=raw_df,
+            source="csv_backup",
+            source_message_es="mock",
+            source_message_en="mock",
+            insecure_ssl=False,
+        ),
+    )
+
+    client = TestClient(create_app())
+    resp = client.get("/api/v1/catalog/export.csv")
+    assert resp.status_code == 200
+    rows = list(csv.DictReader(io.StringIO(resp.text)))
+    assert len(rows) == 1
+    assert rows[0]["pl_name"] == "' =HYPERLINK(\"https://example.com\",\"x\")"
+    assert rows[0]["hostname"] == "'  +1+1"
+    assert rows[0]["discoverymethod"] == "' -2+3"
+    assert rows[0]["disc_facility"] == "'\t=1+1"
+    assert float(rows[0]["dec"]) == -15.5
+
+
 @pytest.mark.parametrize(
     "params",
     [
