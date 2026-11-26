@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+
+  /* Dark Romer Obsidian Layering */
+  --exo-canvas: #080809;
+  --exo-sidebar: #0e0e0f;
+  --exo-surface-1: #101112;
+  --exo-surface-2: #151617;
+  --exo-surface-high: #191a1c;
+
+  /* Borders & Focus */
+  --exo-border-subtle: #1b1c1e;
+  --exo-border-structural: #232426;
+  --exo-border-muted: #2a2a2b;
+
+  /* Brand & Telemetry Signals */
+  --exo-accent: #5e6bff;
+  --exo-accent-hover: #7a85ff;
+  --exo-accent-pressed: #4d5be8;
+  --exo-cerulean: #50d8e9;
+  --exo-teal: #00b1c2;
+  --exo-highlight: #ffb689;
+  --exo-amber: #e0731d;
+  --exo-slate: #8f8fa1;
+  --exo-danger: #ffb4ab;
+
+  /* Typography */
+  --exo-text-primary: #e5e2e3;
+  --exo-text-secondary: #c6c5d8;
+  --exo-text-muted: #9a9da3;
+
+  --font-heading: 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Specular edge highlight */
+  --exo-inner-glow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  --exo-inner-glow-strong: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --exo-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
